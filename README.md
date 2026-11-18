@@ -144,3 +144,57 @@ Day 2 – Phase 1
 Git and GitHub configuration verified.
 Repository history reviewed.
 Local project connected to GitHub.
+
+
+## Project Architecture and Modules
+
+The AI Recommendation Engine is organized into separate modules to support maintainability, scalability, and efficient development.
+
+### Main Modules
+
+1. **Frontend:** Provides the user interface for browsing items and viewing recommendations.
+2. **Backend API:** Handles requests and coordinates communication between application components.
+3. **Item Catalog:** Manages available products, courses, and articles.
+4. **Interaction Tracking:** Records user activities such as views and clicks.
+5. **Recommendation Engine:** Generates personalized recommendations.
+6. **Filtering Service:** Supports content-based and collaborative filtering.
+7. **Database:** Stores application data using PostgreSQL and pgvector.
+8. **Caching Service:** Uses Redis to improve retrieval speed.
+9. **Evaluation Module:** Measures recommendation performance.
+
+### Project Structure
+
+```text
+ai-recommendation-engine/
+├── frontend/
+├── backend/
+│   ├── app/
+│   │   ├── routes/
+│   │   ├── models/
+│   │   ├── services/
+│   │   └── main.py
+│   └── requirements.txt
+├── database/
+├── docs/
+│   └── architecture.md
+├── README.md
+└── .gitignore
+```
+
+### Architecture Documentation
+
+The system architecture diagram and workflow are documented in:
+
+`docs/architecture.md`
+
+### Development Roadmap
+
+- Backend API development
+- Item catalog implementation
+- User interaction tracking
+- Recommendation algorithm development
+- Frontend integration
+- Database integration
+- Testing and performance evaluation
+
+**Project Status:** Architecture planning and initial backend setup completed. Other modules remain planned for implementation.
