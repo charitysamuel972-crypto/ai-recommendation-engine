@@ -320,3 +320,65 @@ The AI Recommendation Engine has progressed from project setup and documentation
 - Develop a frontend interface.
 - Connect the frontend to the backend API.
 - Conduct further testing and debugging.
+
+## Phase 1 – Day 8: Recommendation Engine Enhancement
+
+### Overview
+The recommendation engine was enhanced to provide more personalised recommendations based on user interactions and ratings.
+
+### Features Implemented
+
+1. **Weighted Interaction Scoring:** Different interaction types receive different scores:
+   - View: +1
+   - Click: +2
+   - 5-star rating: +3
+   - 4-star rating: +2
+   - 3-star rating: 0
+   - 2-star rating: -2
+   - 1-star rating: -3
+
+2. **Rating-Based Preferences:** The system uses user ratings to identify positive and negative preferences.
+
+3. **Category-Based Recommendations:** Interaction scores are combined by category to identify user preferences.
+
+4. **Recommendation Ranking:** Recommended items are ranked according to their category scores.
+
+5. **Personalised Explanations:** Each recommendation includes a reason explaining why it was suggested.
+
+6. **Recommendation Limit:** Users can control the number of recommendations returned using the `limit` query parameter. The permitted range is 1–20, with a default of 5.
+
+7. **Cold-Start Handling:** New users without interaction history receive starter recommendations instead of an error response.
+
+8. **Input Validation:** The API validates recommendation limits and rejects values outside the permitted range.
+
+### Testing and Results
+
+The following tests were performed using FastAPI Swagger UI:
+
+| Test | Result |
+|---|---|
+| Cold-start recommendations | Passed |
+| Recording user interactions | Passed |
+| Personalised recommendations | Passed |
+| Positive rating handling | Passed |
+| Negative rating handling | Passed |
+| Category score calculation | Passed |
+| Recommendation explanations | Passed |
+| Recommendation limit | Passed |
+| Invalid recommendation limit | Passed |
+
+### Challenges and Limitations
+
+The interaction records are currently stored in temporary in-memory storage. Consequently, interaction data is lost whenever the application restarts.
+
+The recommendation system also uses category-level scoring. Therefore, negative feedback on an item can affect recommendations across its entire category.
+
+### Technical Implementation
+
+The recommendation engine was implemented using Python and FastAPI. The system uses rule-based scoring logic to analyse user interactions and generate recommendations.
+
+No machine-learning model has been trained or integrated at this stage.
+
+### Outcome
+
+The Day 8 enhancement improved the recommendation engine by introducing weighted scoring, rating-based preferences, recommendation ranking, personalised explanations, input validation and cold-start handling.
